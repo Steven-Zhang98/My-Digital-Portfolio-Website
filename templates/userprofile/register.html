@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% load staticfiles %}
+{% block title %} login {% endblock title %}
+{% block content %}
+
+    <div class="container">
+     <div style="text-align: center" class="container-fluid mt-4">
+            <h4 class="alert alert-info">register</h4>
+        </div>
+    <div class="row justify-content-center">
+        <form class="signup" id="signup_form" method="post" action="." style="min-width: 400px">
+              {% csrf_token %}
+                   <div class="form-group">
+                <label for="id_username">username:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" placeholder="input username" autofocus="autofocus" minlength="1" maxlength="150" required="" id="id_username" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="id_email" class="layui-form-label">E-mail:</label>
+                <input type="email" name="email" placeholder="input email address" id="id_email" class="form-control" required="">
+            </div>
+            <div class="form-group">
+                <label for="id_password1" class="layui-form-label">Password:</label>
+                <input type="password" name="password" placeholder="8 or more letters/numbers" required="" id="id_password1" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="id_password2" class="layui-form-label">retype password</label>
+
+                <input type="password" name="password2" placeholder="retype password" required="" id="id_password2" class="form-control">
+            </div>
+           <button type="submit" class="btn btn-primary">submit</button>
+            <small class="form-text text-muted">
+                if you have register, you can click here<a href="{% url 'userprofile:login' %}">login</a>。
+            </small>
+        </form>
+    </div>
+
+</div>
+{% endblock content %}

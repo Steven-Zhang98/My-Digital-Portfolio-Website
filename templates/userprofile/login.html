@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% load staticfiles %}
+{% block title %} login {% endblock title %}
+{% block content %}
+
+    <div class="container">
+        <div style="text-align: center" class="container-fluid mt-4">
+            <h4 class="alert alert-info">login</h4>
+        </div>
+
+
+
+
+
+            <div class="row justify-content-center" >
+                <form method="post" action="." style="min-width: 400px">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">username</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                        <small class="form-text text-muted ml-1">
+                            <a href="{% url "userprofile:register" %}" style="color: cornflowerblue; ">
+                                register
+                            </a>
+                        </small>
+
+
+                    </div>
+                    <!-- password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                        <small class="form-text text-muted ml-1">
+                            <a class="secondaryAction layui-text" href="{% url "password_reset" %}">
+                                forget password?
+                            </a>
+                        </small>
+                    </div>
+                    <!-- submit -->
+                    <button type="submit" class="btn btn-primary">YES</button>
+                </form>
+            </div>
+
+    </div>
+{% endblock content %}
